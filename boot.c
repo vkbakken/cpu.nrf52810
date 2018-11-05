@@ -1,6 +1,3 @@
-#include "interrupt.h"
-
-
 extern int main(void);
 extern unsigned int __etext;
 extern unsigned int __data_start__;
@@ -30,8 +27,6 @@ void __attribute__((weak)) radio_handler(void);
 void __attribute__((weak)) uarte0_handler(void);
 void __attribute__((weak)) serialbox0_handler(void);
 void __attribute__((weak)) serialbox1_handler(void);
-void __attribute__((weak)) nfct_handler(void);
-void __attribute__((weak)) gpiote_handler(void);
 void __attribute__((weak)) gpiote_handler(void);
 void __attribute__((weak)) saadc_handler(void);
 void __attribute__((weak)) timer0_handler(void);
@@ -57,12 +52,9 @@ void __attribute__((weak)) timer4_handler(void);
 void __attribute__((weak)) pwm0_handler(void);
 void __attribute__((weak)) pdm_handler(void);
 void __attribute__((weak)) mmu_handler(void);
-void __attribute__((weak)) pwm1_handler(void);
-void __attribute__((weak)) pwm2_handler(void);
-void __attribute__((weak)) spi2_handler(void);
-void __attribute__((weak)) rtc2_handler(void);
-void __attribute__((weak)) i2s_handler(void);
-void __attribute__((weak)) fpu_handler(void);
+
+
+
 
 
 unsigned int __boot_exceptions[] __attribute__ ((section (".arm.text.exception_table"), used)) = {
@@ -88,7 +80,7 @@ unsigned int __boot_exceptions[] __attribute__ ((section (".arm.text.exception_t
 	[18]=	(unsigned int)uarte0_handler,
 	[19]=	(unsigned int)serialbox0_handler,
 	[20]=	(unsigned int)serialbox1_handler,
-	[21]=	(unsigned int)nfct_handler,
+	[21]=	0,
 	[22]=	(unsigned int)gpiote_handler,
 	[23]=	(unsigned int)saadc_handler,
 	[24]=	(unsigned int)timer0_handler,
@@ -109,19 +101,10 @@ unsigned int __boot_exceptions[] __attribute__ ((section (".arm.text.exception_t
 	[39]=	(unsigned int)swi3_egu3_handler,
 	[40]=	(unsigned int)swi4_egu4_handler,
 	[41]=	(unsigned int)swi5_egu5_handler,
-	[42]=	(unsigned int)timer3_handler,
-	[43]=	(unsigned int)timer4_handler,
+	[42]=	0,
+	[43]=	0,
 	[44]=	(unsigned int)pwm0_handler,
 	[45]=	(unsigned int)pdm_handler,
-        [46]=	0,
-        [47]=	0,
-	[48]=	(unsigned int)mmu_handler,
-	[49]=	(unsigned int)pwm1_handler,
-	[50]=	(unsigned int)pwm2_handler,
-	[51]=	(unsigned int)spi2_handler,
-	[52]=	(unsigned int)rtc2_handler,
-	[53]=	(unsigned int)i2s_handler,
-	[54]=	(unsigned int)fpu_handler,
 };
 
 
@@ -262,11 +245,6 @@ void __attribute__((weak)) serialbox1_handler(void)
 	while (1) {;}
 }
 
-void __attribute__((weak)) nfct_handler(void)
-{
-	while (1) {;}
-}
-
 
 void __attribute__((weak)) gpiote_handler(void)
 {
@@ -388,18 +366,6 @@ void __attribute__((weak)) swi5_egu5_handler(void)
 }
 
 
-void __attribute__((weak)) timer3_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) timer4_handler(void)
-{
-	while (1) {;}
-}
-
-
 void __attribute__((weak)) pwm0_handler(void)
 {
 	while (1) {;}
@@ -407,48 +373,6 @@ void __attribute__((weak)) pwm0_handler(void)
 
 
 void __attribute__((weak)) pdm_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) mmu_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) pwm1_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) pwm2_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) spi2_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) rtc2_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) i2s_handler(void)
-{
-	while (1) {;}
-}
-
-
-void __attribute__((weak)) fpu_handler(void)
 {
 	while (1) {;}
 }
