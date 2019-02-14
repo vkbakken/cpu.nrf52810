@@ -25,8 +25,8 @@ void systick_handler(void);
 void __attribute__((weak)) power_clock_handler(void);
 void __attribute__((weak)) radio_handler(void);
 void __attribute__((weak)) uarte0_handler(void);
-void __attribute__((weak)) serialbox0_handler(void);
-void __attribute__((weak)) serialbox1_handler(void);
+void __attribute__((weak)) twi0_handler(void);
+void __attribute__((weak)) spi0_handler(void);
 void __attribute__((weak)) gpiote_handler(void);
 void __attribute__((weak)) saadc_handler(void);
 void __attribute__((weak)) timer0_handler(void);
@@ -78,8 +78,8 @@ unsigned int __boot_exceptions[] __attribute__ ((section (".arm.text.exception_t
         [16]=	(unsigned int)power_clock_handler,
 	[17]=	(unsigned int)radio_handler,
 	[18]=	(unsigned int)uarte0_handler,
-	[19]=	(unsigned int)serialbox0_handler,
-	[20]=	(unsigned int)serialbox1_handler,
+	[19]=	(unsigned int)twi0_handler,
+	[20]=	(unsigned int)spi0_handler,
 	[21]=	0,
 	[22]=	(unsigned int)gpiote_handler,
 	[23]=	(unsigned int)saadc_handler,
@@ -234,13 +234,13 @@ void __attribute__((weak)) uarte0_handler(void)
 }
 
 
-void __attribute__((weak)) serialbox0_handler(void)
+void __attribute__((weak)) twi0_handler(void)
 {
 	while (1) {;}
 }
 
 
-void __attribute__((weak)) serialbox1_handler(void)
+void __attribute__((weak)) spi0_handler(void)
 {
 	while (1) {;}
 }
